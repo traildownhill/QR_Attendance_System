@@ -137,16 +137,16 @@ namespace QR_Attendance_System
         {
             try
             {
-                DataTable dt1 = Employee.GetData("SELECT* FROM tbl_am WHERE Employee_ID ='" + select_iD + "'");
-                if (dt1.Rows.Count > 0)
-                {
+                //DataTable dt1 = Employee.GetData("SELECT* FROM tbl_am WHERE Employee_ID ='" + select_iD + "'");
+                //if (dt1.Rows.Count > 0)
+                //{
                     
-                }
-                DataTable dt2 = Employee.GetData("SELECT* FROM tbl_pm' WHERE Employee_ID ='" + select_iD + "'");
-                if (dt2.Rows.Count > 0)
-                {
+                //}
+                //DataTable dt2 = Employee.GetData("SELECT* FROM tbl_pm' WHERE Employee_ID ='" + select_iD + "'");
+                //if (dt2.Rows.Count > 0)
+                //{
                     
-                }
+                //}
 
                 if (select_iD == "")
                 {

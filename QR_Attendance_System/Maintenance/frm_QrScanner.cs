@@ -38,11 +38,11 @@ namespace QR_Attendance_System
             bunifuTextBox1.Select();
         }
 
-        //int txtLength = 0;
-        private void bunifuTextBox1_TextChange(object sender, EventArgs e)
-        {
+        int attenDays;
 
-            if (bunifuTextBox1.TextLength == 12) // nu number lng a 12 tatajan munchi.
+        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (bunifuTextBox1.TextLength >= 12) // nu number lng a 12 tatajan munchi.
             {
 
                 if (string.IsNullOrEmpty(bunifuTextBox1.Text))
@@ -65,9 +65,6 @@ namespace QR_Attendance_System
                 }
             }
         }
-
-        int attenDays;
-        private EventArgs e;
 
         private void SavingScannedQR()
         {
@@ -208,7 +205,7 @@ namespace QR_Attendance_System
                     }
                     //detect if time in or time out
                     //time in
-                    if (d1 >= 1250 && d1 <= 1710)
+                    if (d1 >= 1250 && d1 <= 2010)
                     {
                         //Afternoon
                         Employee.executeSQL("INSERT INTO tbl_pm (`id`, `Employee_ID`, `Time_IN`, `Date`, `Remark`,`Under_Over`) VALUES ('" + id1 + "','" + emp_id + "', '" + DateTime.Now.ToString("HH:mm:ss") + "', '" + DateTime.Now.ToString("MM/dd/yyyy") + "','" + remark + "', '' )");
@@ -229,10 +226,10 @@ namespace QR_Attendance_System
                             //this.Hide();
                         }
                     }
-                    //else if (d1 > 1310)
-                    //{
-                    //    MessageBox.Show("Already not Office Hours", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //}
+                    else if (d1 > 2010)
+                    {
+                        MessageBox.Show("End of Office Hours", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
         }
